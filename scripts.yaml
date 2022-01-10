@@ -1,0 +1,22 @@
+allow:
+
+envFile:
+
+env:
+
+scripts:
+  start:
+    cmd: src/main.ts
+    imap: import_map.json
+  dev:
+    cmd: src/main.ts
+    imap: import_map.json
+    watch: true
+  test: deno test --import-map import_map.json
+  lint: deno lint src
+  format: deno fmt src
+  pre-commit:
+    cmd:
+      - vr lint
+      - vr format
+    gitHook: pre-commit
